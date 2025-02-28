@@ -6,6 +6,13 @@
     <title>Donation</title>
     <!-- tailwind css CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .stiki{
+        position: sticky;
+        top: 0;
+        left: 0;
+      }
+    </style>
     <!-- custom style section -->
     <script>
       tailwind.config = {
@@ -20,26 +27,23 @@
     </script>
   </head>
   <body class="container mx-auto">
-    <header>
       <!-- Navbar design here -->
-      <nav
-        class="flex justify-between items-center bg-gray-200 p-4 pb-9 sticky"
-      >
-        <div>
-          <button class="bg-primary px-6 py-2 rounded-lg font-bold">
-            Blog
-          </button>
-        </div>
-        <div class="flex gap-2 justify-center items-center">
-          <img src="assets/logo.png" alt="" />
-          <div class="text-2xl font-semibold">Donate Bangladesh</div>
-        </div>
-        <div class="flex gap-2">
-          <img src="assets/coin.png" alt="" />
-          <div><span id="total-money">5500</span> BDT</div>
+      <nav class="sticky top-0 left-0 w-full bg-gray-200 p-4 z-1 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+          <button class="bg-primary px-6 py-2 rounded-lg font-bold">Blog</button>
+          <div class="flex gap-2 items-center">
+            <img src="assets/logo.png" alt="" />
+            <div class="text-2xl font-semibold">Donate Bangladesh</div>
+          </div>
+          <div class="flex gap-2">
+            <img src="assets/coin.png" alt="" />
+            <div>
+              <span id="total-money" class="text-xl font-semibold">5500</span> 
+              <span class="text-2xl font-bold">&#x09F3;</span>
+            </div>
+          </div>
         </div>
       </nav>
-    </header>
     <!-- main section -->
     <main>
       <!-- toggle sect -->
@@ -152,13 +156,7 @@
             <h2 class="text-3xl my-2 md:font-bold font-semibold">
              Aid for Injured in the Quota Movement
             </h2>
-            <p class="text-gray-600 mb-3">
-              The recent floods in Noakhali have caused significant damage to
-              homes infrastructure. Your donation will help provide essential
-              supplies and to those affected by this disaster. Every
-              contribution, big or small, makes difference. Please join us in
-              supporting the relief efforts and making a positive impact on the
-              lives of those in need.
+            <p class="text-gray-600 mb-3">The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help ensure that injured individuals receive the care and support they need during this challenging time. Every donation plays a vital role in alleviating their suffering and aiding in their recovery. Please consider making a donation to support these brave individuals in their time of need.
             </p>
             <input
               class="w-full px-6 py-4 outline-none border-2 rounded-xl donated-money"
@@ -176,11 +174,20 @@
 
       <!-- history section -->
        <section id="history-sec" class="hidden mt-6">
-        <p id="transaction" class="text-center text-2xl mt-3">No transaction</p>
+        <p id="transaction" class="text-center text-2xl mt-3">No transaction found</p>
         
        </section>
 
-       
+       <!-- modal -->
+        <section id="modal" class="bg-black bg-opacity-5 hidden backdrop-blur-sm w-full h-full fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center z-20">
+          <div class="bg-white px-16 py-12 rounded-lg flex flex-col items-center justify-center">
+            <h1 class="text-3xl font-bold mb-3">Congratulations</h1>
+            <img src="assets/coin.png" alt="">
+            <p class="mt-3">You have donated for humankinds</p>
+            <p class="text-2xl font-semibold mb-4">Successfully</p>
+            <button id="modal-btn" class="bg-gray-200 px-6 py-3 rounded-xl font-semibold">Close Information</button>
+          </div>
+        </section>
     </main>
 
 

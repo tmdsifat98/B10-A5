@@ -24,7 +24,7 @@ document
     historyBtn.classList.remove("bg-primary");
   });
 
-  // !calculation for donation card
+// !calculation for donation card
 const cardSection = document.querySelectorAll(".card");
 for (let i = 0; i < cardSection.length; i++) {
   let btn = cardSection[i].querySelector(".bg-primary");
@@ -43,21 +43,36 @@ for (let i = 0; i < cardSection.length; i++) {
         if (requireTotalMoney < 0) {
           alert("insufficient balance");
         } else {
+          const modal = document.getElementById("modal");
+          modal.classList.remove("hidden");
+          document
+            .getElementById("modal-btn")
+            .addEventListener("click", function () {
+              document.getElementById("modal").classList.add("hidden");
+            });
           totalMoney.innerText = requireTotalMoney;
           cardDonate.innerText = newAmount;
-          cardSection[i].querySelector(".outline-none").value = ""; 
+          cardSection[i].querySelector(".outline-none").value = "";
 
-          const historyTitle = cardSection[i].querySelector('.text-3xl').innerText;
-          const titleMain=historyTitle.replace('Donate for', '')
-          const historySection=document.getElementById('history-sec')
-          const div = document.createElement('div')
-          document.getElementById('transaction').classList.add('hidden')
-          div.classList.add('border-2','rounded-md','p-6', 'w-3/4','mx-auto','mb-3')
-          div.innerHTML=`
+          const historyTitle =
+            cardSection[i].querySelector(".text-3xl").innerText;
+          const titleMain = historyTitle.replace("Donate for", "");
+          const historySection = document.getElementById("history-sec");
+          const div = document.createElement("div");
+          document.getElementById("transaction").classList.add("hidden");
+          div.classList.add(
+            "border-2",
+            "rounded-md",
+            "p-6",
+            "w-3/4",
+            "mx-auto",
+            "mb-3"
+          );
+          div.innerHTML = `
           <h2 class="text-2xl font-semibold mb-4">${inputValue} Taka is Donated for ${titleMain}</h2>
           <p class="text-gray-500">Date : Tue Sep 17 2024 08:39:11 GMT +0600 (Bangladesh Standard Time)</p>
-          `
-          historySection.appendChild(div)
+          `;
+          historySection.appendChild(div);
         }
       }
     } else {
