@@ -1,12 +1,30 @@
-document.getElementById("history-btn").addEventListener("click", function () {
-  document.getElementById("donation-sec").classList.add("hidden");
-  document.getElementById("history-sec").classList.remove("hidden");
-});
-document.getElementById("donation-btn").addEventListener("click", function () {
-  document.getElementById("donation-sec").classList.remove("hidden");
-  document.getElementById("history-sec").classList.add("hidden");
-});
+// toogle click effects
+document
+  .getElementById("history-btn")
+  .addEventListener("click", function (event) {
+    const historyBtn = document.getElementById("history-btn");
+    const donationBtn = document.getElementById("donation-btn");
+    const donationSec = document.getElementById("donation-sec");
+    const historySec = document.getElementById("history-sec");
+    donationSec.classList.add("hidden");
+    donationBtn.classList.remove("bg-primary");
+    historySec.classList.remove("hidden");
+    historyBtn.classList.add("bg-primary");
+  });
+document
+  .getElementById("donation-btn")
+  .addEventListener("click", function (event) {
+    const historyBtn = document.getElementById("history-btn");
+    const donationBtn = document.getElementById("donation-btn");
+    const donationSec = document.getElementById("donation-sec");
+    const historySec = document.getElementById("history-sec");
+    donationSec.classList.remove("hidden");
+    donationBtn.classList.add("bg-primary");
+    historySec.classList.add("hidden");
+    historyBtn.classList.remove("bg-primary");
+  });
 
+  // !calculation for donation card
 const cardSection = document.querySelectorAll(".card");
 for (let i = 0; i < cardSection.length; i++) {
   let btn = cardSection[i].querySelector(".bg-primary");
@@ -18,20 +36,28 @@ for (let i = 0; i < cardSection.length; i++) {
     );
     const totalMoney = document.getElementById("total-money");
     let totalMoneyNum = parseInt(totalMoney.innerText);
-
-    let requireTotalMoney = totalMoneyNum - inputValue;
     let newAmount = inputValue + cardAmountnNum;
-    if (!isNaN(inputValue)) {
-      if (newAmount < inputValue) {
-        alert("insufficient balance");
-      } 
-      else {
-        if (totalMoney.innerText >= 0) {
-          totalMoney.innerText = requireTotalMoney;
-          
-          cardDonate.innerText = newAmount;
+    if (!isNaN(inputValue) && inputValue > 0) {
+      if (totalMoney.innerText >= 0) {
+        let requireTotalMoney = totalMoneyNum - inputValue;
+        if (requireTotalMoney < 0) {
+          alert("insufficient balance");
         } else {
-          alert("You have insufficient balance");
+          totalMoney.innerText = requireTotalMoney;
+          cardDonate.innerText = newAmount;
+          cardSection[i].querySelector(".outline-none").value = ""; 
+
+          const historyTitle = cardSection[i].querySelector('.text-3xl').innerText;
+          const titleMain=historyTitle.replace('Donate for', '')
+          const historySection=document.getElementById('history-sec')
+          const div = document.createElement('div')
+          document.getElementById('transaction').classList.add('hidden')
+          div.classList.add('border-2','rounded-md','p-6', 'w-3/4','mx-auto','mb-3')
+          div.innerHTML=`
+          <h2 class="text-2xl font-semibold mb-4">${inputValue} Taka is Donated for ${titleMain}</h2>
+          <p class="text-gray-500">Date : Tue Sep 17 2024 08:39:11 GMT +0600 (Bangladesh Standard Time)</p>
+          `
+          historySection.appendChild(div)
         }
       }
     } else {
