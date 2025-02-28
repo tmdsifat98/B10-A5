@@ -33,11 +33,11 @@
           <button class="bg-primary px-6 py-2 rounded-lg font-bold">Blog</button>
           <div class="flex gap-2 items-center">
             <img src="assets/logo.png" alt="" />
-            <div class="text-2xl font-semibold">Donate Bangladesh</div>
+            <div class="hidden md:block text-2xl font-semibold ">Donate Bangladesh</div>
           </div>
-          <div class="flex gap-2">
+          <div class="flex items-center gap-1">
             <img src="assets/coin.png" alt="" />
-            <div>
+            <div class="flex items-center">
               <span id="total-money" class="text-xl font-semibold">5500</span> 
               <span class="text-2xl font-bold">&#x09F3;</span>
             </div>
@@ -56,7 +56,7 @@
 
       <section id="donation-sec">
         <!-- card 1 -->
-        <div class="w-3/4 mx-auto flex card gap-2 p-3 mt-6 flex-wrap md:flex-nowrap">
+        <div class="md:w-3/4 mx-auto flex card gap-2 p-3 mt-6 flex-wrap md:flex-nowrap">
           <!-- card image -->
           <div>
             <img class="object-contain" src="assets/noakhali.png" alt="" />
@@ -96,7 +96,7 @@
         </div>
 
         <!-- card 2 -->
-        <div class="w-3/4 mx-auto flex card gap-2 p-3 mt-6 flex-wrap md:flex-nowrap">
+        <div class="md:w-3/4 mx-auto flex card gap-2 p-3 mt-6 flex-wrap md:flex-nowrap">
           <!-- card image -->
           <div>
             <img class="object-contain" src="assets/feni.png" alt="" />
@@ -138,7 +138,7 @@
         </div>
 
         <!-- card 3 -->
-        <div class="w-3/4 mx-auto flex card gap-2 p-3 mt-6 flex-wrap md:flex-nowrap">
+        <div class="md:w-3/4 mx-auto flex card gap-2 p-3 mt-6 flex-wrap md:flex-nowrap">
           <!-- card image -->
           <div>
             <img class="object-contain" src="assets/quota-protest.png" alt="" />
@@ -147,7 +147,7 @@
           <div class="md:w-3/5">
             <!-- total donation -->
             <div
-              class="flex gap-4 bg-gray-200 w-fit px-6 py-2 rounded-lg items-center"
+              class="flex gap-4 justify-center bg-gray-200 w-fit px-6 py-2 rounded-lg items-center"
             >
               <img src="assets/coin.png" alt="" />
               <!-- !donated money part -->
@@ -173,7 +173,7 @@
       </section>
 
       <!-- history section -->
-       <section id="history-sec" class="hidden mt-6">
+       <section id="history-sec" class="hidden mt-6 px-2">
         <p id="transaction" class="text-center text-2xl mt-3">No transaction found</p>
         
        </section>

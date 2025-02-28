@@ -64,12 +64,12 @@ for (let i = 0; i < cardSection.length; i++) {
             "border-2",
             "rounded-md",
             "p-6",
-            "w-3/4",
+            "md:w-3/4",
             "mx-auto",
             "mb-3"
           );
           div.innerHTML = `
-          <h2 class="text-2xl font-semibold mb-4">${inputValue} Taka is Donated for ${titleMain}</h2>
+          <h2 class="text-xl md:text-2xl font-semibold mb-4">${inputValue} Taka is Donated for ${titleMain}</h2>
           <p class="text-gray-500">Date : Tue Sep 17 2024 08:39:11 GMT +0600 (Bangladesh Standard Time)</p>
           `;
           historySection.appendChild(div);
